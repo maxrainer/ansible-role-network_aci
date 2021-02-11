@@ -1,0 +1,24 @@
+---
+
+- name: bridgedomain configuration
+  cisco.aci.aci_bd:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    bd: "{{ item.name }}"
+    vrf: "{{ item.vrf }}"
+    tenant: "{{ aci_vrfs[item.vrf]['tenant'] }}"
+    description: "{{ item.description | default(omit) }}"
+    state: "{{ aci_bd_state }}"
+  loop: "{{ aci_bridgedomains }}"
+  loop_control:
+    label: "{{ item.name }}"
+  tags: [always]
+
+- name: bridgedomain include subnet loop
+  include_tasks: bd_inner.yml
+  loop: "{{ aci_bridgedomains }}"
+  loop_control: 
+    label: "{{ aci_bridgedomain.name }}"
+    loop_var: aci_bridgedomain
+  tags: [always]

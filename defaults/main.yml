@@ -1,0 +1,6 @@
+---
+
+aci_tenant_state: present
+aci_vrf_state: present
+aci_bd_state: present
+aci_epg_state: present
