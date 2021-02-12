@@ -17,3 +17,9 @@
 
 - include_tasks: epg.yml
   tags: [never, epg]
+
+- include_tasks: query.yml
+  tags: [never, query]
+
+- include_tasks: epg_reverse.yml
+  tags: [never, reverse]
