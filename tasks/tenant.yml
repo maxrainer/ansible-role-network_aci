@@ -27,4 +27,3 @@
     loop_var: tenant
     label: "{{ tenant.name }}"
   tags: [always]
-  
