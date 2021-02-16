@@ -28,5 +28,5 @@
   loop: "{{ aci_epg.contracts }}"
   loop_control:
     label: "{{ item.contract }} ==> {{ item.state | default('present') }}"
-  when: aci_epg.contracts is defined
+  when: aci_epg.contracts is defined and aci_epg_state == 'present'
   tags: [always]
