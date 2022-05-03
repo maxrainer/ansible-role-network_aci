@@ -10,6 +10,7 @@
     tenant: "{{ aci_vrfs[item.vrf]['tenant'] }}"
     description: "{{ item.description | default(omit) }}"
     state: "{{ aci_bd_state }}"
+    validate_certs: "{{ aci_validate_certs }}"
   loop: "{{ aci_bridgedomains }}"
   loop_control:
     label: "{{ item.name }}"

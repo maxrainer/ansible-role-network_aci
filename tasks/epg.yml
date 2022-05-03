@@ -11,6 +11,7 @@
     description: "{{ aci_epg.description | default(omit) }}"
     bd: "{{ aci_epg.bd }}"
     state: "{{ aci_epg_state }}"
+    validate_certs: "{{ aci_validate_certs }}"
   tags: [always]
 
 - name: bind EPG to contract
@@ -25,6 +26,7 @@
     tenant: "{{ aci_epg.tenant }}"
     ap: "{{ aci_epg.ap }}"
     state: "{{ item.state | default(omit) }}"
+    validate_certs: "{{ aci_validate_certs }}"
   loop: "{{ aci_epg.contracts }}"
   loop_control:
     label: "{{ item.contract }} ==> {{ item.state | default('present') }}"

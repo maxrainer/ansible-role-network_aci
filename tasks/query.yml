@@ -6,6 +6,7 @@
     username: "{{ ansible_user }}"
     password: "{{ ansible_ssh_pass }}"
     state: query
+    validate_certs: "{{ aci_validate_certs }}"
   register: _tenants
   tags: [always]
 

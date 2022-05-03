@@ -9,6 +9,7 @@
     tenant: "{{ item.value.tenant }}"
     description: "{{ item.value.description | default(omit) }}"
     state: "{{ aci_vrf_state }}"
+    validate_certs: "{{ aci_validate_certs }}"
   loop: "{{ aci_vrfs | dict2items }}"
   loop_control: 
     label: "{{ item.key }}"

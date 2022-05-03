@@ -10,6 +10,7 @@
     bd: "{{ aci_bridgedomain.name }}"
     gateway: "{{ item.gateway }}"
     mask: "{{ item.mask | default ('24') }}"
+    validate_certs: "{{ aci_validate_certs }}"
   loop: "{{ aci_bridgedomain.subnets }}"
   loop_control:
     label: "{{ item.gateway }} "

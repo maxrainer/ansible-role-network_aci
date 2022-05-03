@@ -6,4 +6,4 @@
     - ../../network-aci
   connection: local
   gather_facts: no
-  
+  vars_files: vars/apic.yml

@@ -8,6 +8,7 @@
     tenant: "{{ tenant.name }}"
     ap: "{{ item.name }}"
     description: "{{ item.description | default(omit) }}"
+    validate_certs: "{{ aci_validate_certs }}"
   loop: "{{ tenant.aps }}"
   loop_control:
     label: "{{ item.name }}"
