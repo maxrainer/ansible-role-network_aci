@@ -27,4 +27,5 @@
   loop_control: 
     loop_var: tenant
     label: "{{ tenant.name }}"
+  when: aci_tenant_state != absent
   tags: [always]

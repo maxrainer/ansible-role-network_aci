@@ -22,4 +22,5 @@
   loop_control: 
     label: "{{ aci_bridgedomain.name }}"
     loop_var: aci_bridgedomain
+  when: aci_bd_state != "absent"
   tags: [always]
